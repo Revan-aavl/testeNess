@@ -1,0 +1,61 @@
+# Criação do database dos times
+create database dbTimeFutebol;
+
+# Ativa o database a ser utilizado
+	use dbTimeFutebol;
+
+create table tblTimes(
+	idTimes int auto_increment not null primary key,
+    nome varchar(100) not null
+
+);
+
+create table tblPosicoes(
+	idPosicoes int auto_increment not null primary key,
+    posicao varchar(100) not null
+
+);
+
+create table tblJogadores(
+	idJogadores int auto_increment not null,
+    nome varchar(100) not null,
+    idPosicoes int not null,
+    primary key (idJogadores),
+	constraint FK_posicao_jogadores foreign key (idPosicoes) 
+    references tblPosicoes (idPosicoes)
+);
+
+
+select * from tblTimes;
+
+# Dados da table de times
+insert into tblTimes (nome) value ('Sport');
+insert into tblTimes (nome) value ('Atlético GO');
+insert into tblTimes (nome) value ('Fortaleza');
+insert into tblTimes (nome) value ('América Mineiro');
+insert into tblTimes (nome) value ('Vasco da Gama');
+insert into tblTimes (nome) value ('Chapecoense');
+insert into tblTimes (nome) value ('Botafogo');
+insert into tblTimes (nome) value ('Fluminense');
+insert into tblTimes (nome) value ('Bahia');
+insert into tblTimes (nome) value ('Cruzeiro');
+insert into tblTimes (nome) value ('Atlético Mineiro');
+insert into tblTimes (nome) value ('São Paulo');
+insert into tblTimes (nome) value ('Corinthians');
+insert into tblTimes (nome) value ('Santos');
+insert into tblTimes (nome) value ('Athletico Paranaense');
+insert into tblTimes (nome) value ('Internacional');
+insert into tblTimes (nome) value ('Grêmio');
+insert into tblTimes (nome) value ('Palmeiras');
+insert into tblTimes (nome) value ('Flamengo');
+
+# Dados da table de posições
+insert into tblPosicoes (posicao) value ('Goleiro');
+insert into tblPosicoes (posicao) value ('Lateral-direito');
+insert into tblPosicoes (posicao) value ('Lateral-esquerdo');
+insert into tblPosicoes (posicao) value ('Zagueiro');
+insert into tblPosicoes (posicao) value ('Volante');
+insert into tblPosicoes (posicao) value ('Meia');
+insert into tblPosicoes (posicao) value ('Atacante');
+insert into tblPosicoes (posicao) value ('Meia atacante');
+insert into tblPosicoes (posicao) value ('Líbero');
