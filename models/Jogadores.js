@@ -10,7 +10,7 @@ const Jogadores = db.sequelize.define('tblJogadores', {
         type: db.Sequelize.STRING,
         allowNull: false,
         references: {
-            model: Posicao",
+            model: Posicoes,
             key: 'nome'
         }
     }
@@ -39,7 +39,7 @@ const Jogadores = db.sequelize.define('tblJogadores', {
 //      })
 
 Jogadores.sync({force: true})
-// module.exports = Jogadores
+module.exports = Jogadores
 
 
 
