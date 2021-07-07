@@ -1,44 +1,40 @@
 const db = require('./db');
 
 const Jogadores = db.sequelize.define('tblJogadores', {
+    
+    idJogadores: {
+        type: db.Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
+    
     nome: {
         type: db.Sequelize.STRING,
         allowNull: false
     },
 
-    posicoesId: {
+    times: {
         type: db.Sequelize.STRING,
-        allowNull: false,
-        references: {
-            model: Posicoes,
-            key: 'nome'
-        }
+        allowNull: false
+    },
+
+    posicao: {
+        type: db.Sequelize.STRING,
+        allowNull: false
     }
+
+    // idPosicoes: {
+    //     type: db.Sequelize.INT,
+    //     allowNull: false,
+    //     references: {
+    //         model: tblPosicoes,
+    //         key: 'idPosicoes'
+    //     }
+    // }
 })
 
-// const Post = db.sequelize.define('tblPosicoes', {
-//     posicao: {
-//         type: db.Sequelize.STRING,
-//         allowNull: false
-//     }
-// })
-
-// const Post = db.sequelize.define('tblJogadores', {
-//          nome: {
-//              type: db.Sequelize.STRING,
-//              allowNull: false
-//          },
-
-//          condominioId: {
-//             type: db.Sequelize.STRING,
-//             allowNull: false,
-//             references: {
-//                 model: Condominio,
-//                 key: 'nome'
-//             }
-//      })
-
-Jogadores.sync({force: true})
+// Jogadores.sync({force: true})
 module.exports = Jogadores
 
 
